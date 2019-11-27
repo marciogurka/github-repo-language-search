@@ -66,6 +66,7 @@ function App() {
   useEffect(() => {
     if(languageSelected) 
       searchLanguageRepos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [languageSelected, pageNumber]);
 
   return (
