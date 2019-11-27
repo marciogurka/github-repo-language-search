@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AppHeader from './AppHeader/AppHeader';
 import SearchSelect from './SearchSelect/SearchSelect';
 import Typography from '@material-ui/core/Typography';
+import RepoList from './RepoList/RepoList';
 import { appStyles } from './App.style';
 import axios from 'axios';
 
@@ -26,8 +27,10 @@ function App() {
  * @author Márcio José Gurka Júnior <marciogurkajr@gmail.com>
  */
   const onSelectLanguage = (langOption) => {
-    if(langOption !== languageSelected)
+    if(langOption !== languageSelected) {
+      setSearchResults([])
       setPageNumber(1)
+    }
     setLanguageSelected(langOption);
     if(langOption) 
       searchLanguageRepos();
@@ -63,7 +66,8 @@ function App() {
           Github Repo Search
         </Typography>
         <SearchSelect languageSelected={languageSelected} onSelect={event => onSelectLanguage(event.target.value)}/>
-        { languageSelected && <Typography variant="h5" component="h4"> Results for "<Typography id="searched-language" variant="h5" component="span">{ languageSelected }</Typography>": </Typography> }
+        { languageSelected && !isLoading && <Typography variant="h5" component="h4"> Results for "<Typography id="searched-language" variant="h5" component="span">{ languageSelected }</Typography>": </Typography> }
+        <RepoList repositories={searchResults}/>
       </main>
     </div>
   );

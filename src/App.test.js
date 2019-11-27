@@ -25,6 +25,3 @@ it('Update the language when the onSelectLanguage is called', () => {
 
   expect(wrapper.find("#searched-language").text()).toBe("C");
 });
-
-// it('calls the setLanguageSelected fn when onSelectLanguage happens', () => {
-// });
