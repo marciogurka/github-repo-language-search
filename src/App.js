@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AppHeader from './AppHeader/AppHeader';
 import SearchSelect from './SearchSelect/SearchSelect';
-import Typography from '@material-ui/core/Typography';
 import RepoList from './RepoList/RepoList';
+import Typography from '@material-ui/core/Typography';
 import { appStyles } from './App.style';
 import axios from 'axios';
 
@@ -19,6 +19,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreResults, setHasMoreResults] = useState(true);
   const [pageNumber, setPageNumber] = useState(0);
+  const [scroller, setScroller] = useState(null);
 
   /**
  * @name onSelectLanguage
@@ -56,15 +57,21 @@ function App() {
     }
   }
 
+  const handleScroll = () => {
+    if(scroller && ((scroller.clientHeight + scroller.scrollTop) > scroller.scrollHeight - 200)) {
+      setPageNumber(pageNumber + 1)
+    }
+  }
+
   useEffect(() => {
     if(languageSelected) 
       searchLanguageRepos();
-}, [languageSelected]);
+  }, [languageSelected, pageNumber]);
 
   return (
     <div className={classes.app}>
       <AppHeader/>
-      <main className={classes.mainContainer}>
+      <main className={classes.mainContainer} onScroll={handleScroll} ref={(scroller) => setScroller(scroller)}>
         <Typography variant="h2" component="h1" gutterBottom>
           Github Repo Search
         </Typography>
