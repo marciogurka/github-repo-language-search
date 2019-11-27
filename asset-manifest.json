@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/github-repo-language-search/static/css/main.34de6062.chunk.css",
+    "main.js": "/github-repo-language-search/static/js/main.f9f78b0e.chunk.js",
+    "main.js.map": "/github-repo-language-search/static/js/main.f9f78b0e.chunk.js.map",
+    "runtime-main.js": "/github-repo-language-search/static/js/runtime-main.10aec781.js",
+    "runtime-main.js.map": "/github-repo-language-search/static/js/runtime-main.10aec781.js.map",
+    "static/js/2.5e42b4d3.chunk.js": "/github-repo-language-search/static/js/2.5e42b4d3.chunk.js",
+    "static/js/2.5e42b4d3.chunk.js.map": "/github-repo-language-search/static/js/2.5e42b4d3.chunk.js.map",
+    "index.html": "/github-repo-language-search/index.html",
+    "precache-manifest.118010677360ccd4fd1791dedef98b14.js": "/github-repo-language-search/precache-manifest.118010677360ccd4fd1791dedef98b14.js",
+    "service-worker.js": "/github-repo-language-search/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/github-repo-language-search/static/css/main.34de6062.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10aec781.js",
+    "static/js/2.5e42b4d3.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.f9f78b0e.chunk.js"
+  ]
+}
