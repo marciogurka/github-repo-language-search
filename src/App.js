@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppHeader from './AppHeader/AppHeader';
 import SearchSelect from './SearchSelect/SearchSelect';
 import Typography from '@material-ui/core/Typography';
@@ -32,8 +32,6 @@ function App() {
       setPageNumber(1)
     }
     setLanguageSelected(langOption);
-    if(langOption) 
-      searchLanguageRepos();
   }
 
   /**
@@ -56,7 +54,12 @@ function App() {
         setIsLoading(true);
       }
     }
-  } 
+  }
+
+  useEffect(() => {
+    if(languageSelected) 
+      searchLanguageRepos();
+}, [languageSelected]);
 
   return (
     <div className={classes.app}>
@@ -66,8 +69,8 @@ function App() {
           Github Repo Search
         </Typography>
         <SearchSelect languageSelected={languageSelected} onSelect={event => onSelectLanguage(event.target.value)}/>
-        { languageSelected && !isLoading && <Typography variant="h5" component="h4"> Results for "<Typography id="searched-language" variant="h5" component="span">{ languageSelected }</Typography>": </Typography> }
-        <RepoList repositories={searchResults}/>
+        { languageSelected && <Typography variant="h5" component="h4"> Results for "<Typography id="searched-language" variant="h5" component="span">{ languageSelected }</Typography>": </Typography> }
+        <RepoList repositories={searchResults} loading={isLoading}/>
       </main>
     </div>
   );

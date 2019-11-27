@@ -13,7 +13,8 @@ export const appStyles = makeStyles(theme => ({
       flexDirection: 'column',
       height: '100%',
       justifyContent: 'flex-start',
-      padding: '3em 2em',
+      overflow: 'scroll',
+      padding: '3em 2em'
     }
   })
 );
