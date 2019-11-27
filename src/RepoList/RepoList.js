@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import RepoListItem from './RepoListItem/RepoListItem';
 import { repoListStyles } from './RepoList.style';
 
@@ -17,12 +18,13 @@ function RepoList(props, context) {
       ((!repositories || (repositories && repositories.length === 0)) && !loading && (<Typography variant="body1" gutterBottom>Choose a programming language to check the most starred repositories of that language</Typography>))
     }
     {
-      repositories && repositories.length > 0 && !loading ? 
+      repositories && repositories.length > 0 ? 
         repositories.map(repository => {
           return (<RepoListItem key={repository.id} repository={repository}/>)
         })
       : null
     }
+    { loading && <LinearProgress className={classes.loading} variant="query" /> }
     </div>
   );
 }

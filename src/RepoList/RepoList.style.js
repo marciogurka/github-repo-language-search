@@ -8,6 +8,11 @@ export const repoListStyles = makeStyles(theme => ({
       justifyContent: 'space-evenly',
       marginTop: 16,
       width: '100%'
+    },
+    loading: {
+      marginBottom: 16,
+      marginTop: 16,
+      width: '100%'
     }
   })
 );

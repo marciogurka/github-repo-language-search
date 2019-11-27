@@ -1,6 +1,7 @@
 import React from 'react';
 import RepoList from './RepoList';
 import RepoListItem from './RepoListItem/RepoListItem'
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -28,5 +29,14 @@ it('Shows a RepoListItem when there is a result available', () => {
   const wrapper = shallow(<RepoList { ...baseProps } />);
 
   expect(wrapper.find(RepoListItem).length).toBe(1);
+});
+
+it('Shows a LinearProgress component when is loading', () => {
+  const baseProps = {
+    loading: true
+  };
+  const wrapper = shallow(<RepoList { ...baseProps } />);
+
+  expect(wrapper.find(LinearProgress).length).toBe(1);
 });
 
